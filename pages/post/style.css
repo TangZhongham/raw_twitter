@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Default background color */
+}
+
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Spread elements horizontally */
+    align-items: flex-start; /* Align items at the start vertically */
+    padding: 20px; /* Add padding for spacing */
+}
+
+/* .post-container {
+    text-align: center;
+} */
+
+.post-container {
+    flex-grow: 1; /* Grow to fill available space */
+    margin-right: 20px; /* Add margin between post text area and right section */
+}
+
+.left-section {
+    flex-shrink: 0; /* Prevent shrinking */
+    width: 140px; /* Set fixed width for left section */
+    padding-right: 100px; /* Add padding to separate from the center section */
+    /* position: relative; Add position relative */
+}
+
+.left-section::after {
+    content: ''; /* Add pseudo-element */
+    position: absolute; /* Set position absolute */
+    top: 20px; /* Align to the top */
+    bottom: 20px; /* Align to the bottom */
+    left: 220px; /* Align to the right */
+    width: 1px; /* Set width of the border line */
+    background-color: #ccc; /* Set color of the border line */
+    margin-right: 50px; /* Adjust margin to position the border line */
+}
+
+.page-button {
+    display: block;
+    margin-bottom: 10px; /* Add margin between buttons */
+    width: 100%; /* Make buttons fill the width of the left section */
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#postTextArea {
+    width: 300px;
+    height: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.post-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ensure the form is above the overlay */
+}
+
+#postContent {
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#postSubmit, #postCancel {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#postCancel {
+    background-color: #dc3545;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#postSubmit {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 1; /* Ensure the overlay is behind the form */
+    display: none; /* Initially hidden */
+}
+
+.fake-tweets {
+    margin-top: 20px; /* Adjusted margin top to position fake tweets under the postTextArea */
+
+    border-top: 1px solid #ccc; /* Add border between post text area and fake tweets */
+    padding-top: 20px; /* Add padding above fake tweets */
+}
+
+.tweet {
+    border: 1px solid #ccc; /* Add border to the tweet */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    padding: 10px; /* Add padding to the tweet */
+    margin-bottom: 10px; /* Add margin to separate tweets */
+}
+
+.tweet-avatar {
+    width: 50px; /* Set width for the avatar */
+    height: 50px; /* Set height for the avatar */
+    background-color: #f4f4f4; /* Set background color for the avatar */
+    border-radius: 50%; /* Make the avatar circular */
+    display: inline-block; /* Display avatar as inline-block */
+    margin-right: 10px; /* Add margin to separate avatar from content */
+}
+
+.tweet-content {
+    display: inline-block; /* Display content as inline-block */
+    vertical-align: top; /* Align content to the top of the tweet */
+}
+
+.tweet-author {
+    font-weight: bold; /* Make author name bold */
+    margin-bottom: 5px; /* Add margin below author name */
+}
+
+.tweet-text {
+    margin: 0; /* Remove default margin for text */
+}
