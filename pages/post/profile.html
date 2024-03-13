@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="profile.css"> -->
+
+<title>Profile</title>
+</head>
+<body>
+<div class="container">
+    <div class="left-section">
+        <a href="post.html"><button class="page-button">Home</button></a>
+        <a href="search.html"><button class="page-button">Search</button></a>
+        <a href="profile.html"><button class="page-button">Profile</button></a>
+        <button class="page-button">Random</button>
+    </div>
+
+    <div class="post-container">
+        <!-- the top area -->
+        <div class="profile-top" class="fake-tweets">
+            <img src="images/1.jpeg" alt="user_photo" id="p_Photo">
+            <div class="profile-top-middle">
+                <h1 class="p_name" class="tweet-avatar">Nolan</h1>
+                <p class="p_info" class="tweet-text">02-22-1988</p>
+                <p class="p_info" class="tweet-text">I am a super super super handsome guy!</p>
+            </div>
+            <button class="p_top_edit" >Edit profile</button>
+        </div>
+
+        <div class="fake-tweets">
+            <h2>Fake Tweets</h2>
+            <div class="tweet">
+                <div class="tweet-avatar"></div>
+                <div class="tweet-content">
+                    <p class="tweet-text">This is a fake tweet!</p>
+                </div>
+                <div class="tweet-modify">
+                    <button class="modify-button" id="tweet-edit">Edit</button>
+                    <button class="modify-button" id="tweet-delete">Delete</button>
+                </div>
+            </div>
+            <div class="tweet">
+                <div class="tweet-avatar"></div>
+                <div class="tweet-content">
+                    <p class="tweet-text">This is a fake tweet!</p>
+                </div>
+            </div>
+            <div class="tweet">
+                <div class="tweet-avatar"></div>
+                <div class="tweet-content">
+                    <p class="tweet-text">This is a fake tweet!</p>
+                </div>
+            </div>
+            <div class="tweet">
+                <div class="tweet-avatar"></div>
+                <div class="tweet-content">
+                    <p class="tweet-text">This is a fake tweet!</p>
+                </div>
+            </div>
+            <div class="tweet">
+                <div class="tweet-avatar"></div>
+                <div class="tweet-content">
+                    <p class="tweet-text">This is a fake tweet!</p>
+                </div>
+            </div>
+        <!-- Add more fake tweets here -->
+        </div>
+    </div>
+</div>
+
+<!-- Post form -->
+<div id="postForm" class="post-form">
+    <button id="postCancel">X</button>
+    <textarea id="postContent" placeholder="What's happening?"></textarea>
+    <button id="postSubmit">Post</button>
+</div>
+
+
+
+<div class="overlay"></div>
+
+<script src="post.js" defer></script>
+</body>
+</html>
