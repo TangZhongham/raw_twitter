@@ -1,3 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4; /* Default background color */
@@ -56,6 +65,9 @@ body {
     cursor: pointer;
 }
 
+.page-button:hover{
+    background-color: #001aff;
+}
 
 #postTextArea {
     width: 300px;
@@ -140,6 +152,7 @@ body {
     border-radius: 5px; /* Add border radius for rounded corners */
     padding: 10px; /* Add padding to the tweet */
     margin-bottom: 10px; /* Add margin to separate tweets */
+    position: relative;
 }
 
 .tweet-avatar {
@@ -164,3 +177,63 @@ body {
 .tweet-text {
     margin: 0; /* Remove default margin for text */
 }
+
+
+/* =============================from here is profile page=========================== */
+/* ==this the the top box of the profile == */
+.profile-top{
+    margin-top: 20px; /* Adjusted margin top to position fake tweets under the postTextArea */
+    border: 1px solid #ccc; /* Add border to the tweet */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    padding: 20px; /* Add padding above fake tweets */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* this is the img inside the top box */
+#p_Photo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 40px;
+}
+
+/* this is the the button inside the top box */
+.p_top_edit{
+    border: 1px solid #ccc; /* Add border to the tweet */
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    margin-right: auto;
+}
+
+.p_top_edit:hover{
+    background-color: #898787;
+}
+
+.profile-top-middle p, .profile-top-middle h1 {
+    margin: 10px 0;
+}
+
+/* == this is the tweet format ==  */
+.tweet-modify{
+    position: absolute;
+    right: 10px;
+    bottom: 3px;
+}
+
+.modify-button{
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+}
+
+.modify-button:hover{
+    text-decoration: underline;
+}
+
