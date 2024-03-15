@@ -1,32 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Assignment2 - Twitter</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/twitter.css">
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="twitter.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
-        <h2>Sign in to your Account</h2>
-        <form action="#" method="post">
-            <label for="email">Email address</label>
-            <input class="inputtext" type="email" id="email" name="email" placeholder="Email">
-            <p id="emailError" class="error" hidden>Email address should be non-empty with the format xyz@xyz.xyz.</p>
+        <div class="logo-container">
+            <img src="/logos/Fake Twitter_transparent.png" alt="Twitter Logo">
+        </div>
+        <div class="form-container">
+            <h1>Happening now</h1>
+            <h2>Join Today.</h2>
 
-            <label for="password">Password</label>
-            <input class="inputtext" type="password" id="pass" name="pass" placeholder="Password">
-            <p id="passwordError" class="error" hidden>Password should be at least 8 characters: 1 uppercase, 1 lowercase.</p>
-            <a href="#">Forgot Password?</a>
+            <form action="#" method="post" id="signupForm">
+                <input id="signIn" type="submit" value="Create account" >
 
-            <input id="signIn" type="submit" value="Sign In">
+                <p>By signing up, you agree to the Terms of Service and Privacy<br>Policy, including Cookie Use.</p>
+                <h3>Already have an account?</h3>
+                
+                <input id="signUp" type="button" value="Sign in" onclick="location.href='signin.html';">
+            </form>
 
-        </form>
-        <div class="new-user">
-            <p>New User? <a href="#">Create an account</a></p>
         </div>
     </div>
+    
 </body>
 </html>

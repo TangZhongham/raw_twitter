@@ -1,7 +1,6 @@
-
 body {
   font-family: Arial, sans-serif;
-  background-color:dimgray;
+  background-color: white;
   margin: 0;
   padding: 0;
   display: flex;
@@ -11,70 +10,113 @@ body {
 }
 
 .container {
-  width: 350px;
-  margin: 0 auto;
+  display: flex;
+}
+
+.logo-container {
+  flex: 1;
   padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-container {
+  flex: 1;
+  padding: 20px;
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
   color: #333;
+  font-size: 70px;
+  font-weight: bold;
+  padding-top:50px;
 }
 
 h2 {
-  text-align: center;
-  padding-bottom: 30px;
+  text-align: left;
+  color: #333;
+  font-size: 30px;
+  font-weight: bold;
 }
+ p{
+  font-size: 10px;
+  position: relative;
+  text-align: left;
+ }
 
 form {
   display: flex;
   flex-direction: column;
+ 
 }
 
-label {
-  margin-bottom: 5px;
-  font-size: 16px;
-  color: #333;
-}
-
-input[type="email"],
-input[type="password"],
 input[type="submit"] {
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #007bff;
+  border-radius: 20px;
   font-size: 16px;
-}
-
-a {
-  margin-bottom: 25px;
-  font-size: 14px;
-  font-weight: bold;
-  color:#007bff;
-  text-decoration: none;
-}
-
-input[type="submit"] {
   background-color: #007bff;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-weight: bold;
+  width: 300px;
 }
 
-input[type="submit"]:hover {
-  background-color:#007bff;
+h3{
+  font-size: 16px;
+  padding-top: 35px;
+  font-weight: bold;
 }
 
-.new-user {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.new-user a {
+input[type="button"]{
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color:white;
   color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  width: 300px;
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
   text-decoration: none;
+  cursor: pointer;
 }
