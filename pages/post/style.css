@@ -236,4 +236,67 @@ body {
 .modify-button:hover{
     text-decoration: underline;
 }
+/* ====from here is the Pop-up prompt of the profile===== */
+/* Pop-up prompt */
+.profile-edit-form {
+    position: fixed;
+    display: none;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 2;
+}
+
+/* close button */
+#closeProfileEdit {
+    background-color: #dc3545;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: white;
+}
+
+#closeProfileEdit:hover {
+    background-color: #880915;
+}
+/* save button */
+#saveProfile {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    height: 30px;
+    width: 50px;
+    background-color: #007bff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: white;
+}
+
+#saveProfile:hover {
+    background-color: #001aff;
+}
+/* info */
+.editinfo {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+/* validate error */
+.warning{
+    color: red;
+}
 
