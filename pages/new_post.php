@@ -1,3 +1,18 @@
+
+<?php
+   // Start the session
+   session_start();
+
+   // Check if the user is not logged in
+   if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+       // Display a message and redirect to the login page
+       echo '<script>alert("Please log in to Read Tweets");';
+       echo 'window.location.href = "/raw_twitter/pages";</script>';
+       exit;
+   }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +29,6 @@
         <a href="profile.php"><button class="page-button">Profile</button></a>
         <a href="random.php"><button class="page-button">Random</button></a>
         <?php
-            // Check if user is logged in
-            session_start();
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 echo '<a href="logout.php"><button class="page-button">Logout</button></a>';
             } else {
@@ -29,10 +42,8 @@
     <div class="fake-tweets">
     <h2>Fake Tweets</h2>
     <?php
-        // Include database connection file
         include 'db_connection.php';
 
-        // Fetch fake tweets from the database
         $sql = "SELECT u.name, u.birthdate, u.image, t.text, COUNT(l.id) AS likes 
                 FROM twitter_user u 
                 JOIN tweets t ON u.id = t.userid
@@ -56,14 +67,12 @@
             echo "0 results";
         }
 
-        // Close database connection
         $conn->close();
     ?>
     </div>
     </div>
 </div>
 
-<!-- Post form -->
 <div id="postForm" class="post-form">
     <button id="postCancel">X</button>
     <textarea id="postContent" placeholder="What's happening?"></textarea>
