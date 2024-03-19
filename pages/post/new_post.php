@@ -33,16 +33,23 @@
         include 'db_connection.php';
 
         // Fetch fake tweets from the database
-        $sql = "SELECT * FROM mysql.tweets";
+        $sql = "SELECT u.name, u.birthdate, u.image, t.text, COUNT(l.id) AS likes 
+                FROM twitter_user u 
+                JOIN tweets t ON u.id = t.userid
+                JOIN follow f ON u.id = f.userid
+                JOIN likes l ON u.id = l.userid
+                WHERE l.status = 'True'
+                GROUP BY u.name, u.birthdate, u.image, t.text";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo '<div class="tweet">';
-                echo '<div class="tweet-avatar"></div>';
+                echo '<div class="tweet-avatar"><img src="' . $row["image"] . '" alt="Avatar"></div>';
                 echo '<div class="tweet-content">';
-                echo '<p class="tweet-author">' . $row["author"] . '</p>';
+                echo '<p class="tweet-author">' . $row["name"] . '</p>';
                 echo '<p class="tweet-text">' . $row["text"] . '</p>';
+                echo '<p class="tweet-likes">' . $row["likes"] . ' likes</p>';
                 echo '</div></div>';
             }
         } else {
