@@ -225,10 +225,12 @@ body {
     position: absolute;
     right: 10px;
     bottom: 3px;
+    padding: 3px 5px;
 }
 
 .modify-button{
     background-color: transparent;
+    display: inline-block  ;
     border: none;
     color: #007bff;
 }

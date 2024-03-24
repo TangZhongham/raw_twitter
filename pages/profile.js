@@ -31,66 +31,66 @@ document.addEventListener('DOMContentLoaded', function() {
         editDescription.value = '';
     }
 
-    function saveProfileForm(){
-        // validate name
-        const defaultMsg = '';
-        const nameErrorMsg = 'Name needs to be less than 8 characters';
-        const birthdayErrorMsg = 'Birthday format should day,month,year '
+    // function saveProfileForm(){
+    //     // validate name
+    //     const defaultMsg = '';
+    //     const nameErrorMsg = 'Name needs to be less than 8 characters';
+    //     const birthdayErrorMsg = 'Birthday format should day,month,year '
 
-        const nameError = document.createElement('p')
-        nameError.setAttribute('class','warning')
-        document.querySelector("#editName").parentNode.appendChild(nameError);
+    //     const nameError = document.createElement('p')
+    //     nameError.setAttribute('class','warning')
+    //     document.querySelector("#editName").parentNode.appendChild(nameError);
         
-        function validateName(){
-            if (editName.value.length > 8){
-                return nameErrorMsg;
-            }else{
-                return defaultMsg;
-            }
-        }
+    //     function validateName(){
+    //         if (editName.value.length > 8){
+    //             return nameErrorMsg;
+    //         }else{
+    //             return defaultMsg;
+    //         }
+    //     }
 
-        editName.parentNode.insertBefore(nameError, editName.nextSibling);
+    //     editName.parentNode.insertBefore(nameError, editName.nextSibling);
 
-        function validate(){
-            let valid = true;
-            let nameValidation = validateName();
-            if(nameValidation !== defaultMsg){
-                nameError.textContent = nameValidation;
-                valid = false;
-            }
-            return valid
-        }
-        // event listner to empty the text inside the two paragraph when resent
-        function reserNameError(){
-            nameError.textContent =defaultMsg;
-        }
+    //     function validate(){
+    //         let valid = true;
+    //         let nameValidation = validateName();
+    //         if(nameValidation !== defaultMsg){
+    //             nameError.textContent = nameValidation;
+    //             valid = false;
+    //         }
+    //         return valid
+    //     }
+    //     // event listner to empty the text inside the two paragraph when resent
+    //     function reserNameError(){
+    //         nameError.textContent =defaultMsg;
+    //     }
 
-        editName.addEventListener("blur",()=>{
-            let x =validateName();
-            if(x == defaultMsg){
-                nameError.textContent = defaultMsg;
-            }
-        })
+    //     editName.addEventListener("blur",()=>{
+    //         let x =validateName();
+    //         if(x == defaultMsg){
+    //             nameError.textContent = defaultMsg;
+    //         }
+    //     })
 
-        //if validate sucessed then save
-        if(validate()) {
-            const name = document.querySelector('.p_name');
-            const birthday = document.getElementById('birthdayInfo');
-            const description = document.getElementById('descriptionInfo');
+    //     //if validate sucessed then save
+    //     // if(validate()) {
+    //     //     const name = document.querySelector('.p_name');
+    //     //     const birthday = document.getElementById('birthdayInfo');
+    //     //     const description = document.getElementById('descriptionInfo');
 
-            name.textContent = editName.value;
-            birthday.textContent = editBirthday.value;
-            description.textContent = editDescription.value;
-            hidefileEditForm();
-        }
+    //     //     name.textContent = editName.value;
+    //     //     birthday.textContent = editBirthday.value;
+    //     //     description.textContent = editDescription.value;
+    //     //     hidefileEditForm();
+    //     // }
         
-    }
+    // }
    // Event listener for turn on profile edit click
    editProfile.addEventListener('click',showprofileEditForm);
     // Event listener for turn off profile edit click
    closeProfileEdit.addEventListener('click',hidefileEditForm);
   // Event listener for save profile edit click
-   saveProfileEdit.addEventListener('click',saveProfileForm);
+//    saveProfileEdit.addEventListener('click',saveProfileForm);
 
  // ========from here for edit Tweets========
     deleteTweet.forEach(button => {
