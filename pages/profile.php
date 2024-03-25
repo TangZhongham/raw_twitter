@@ -34,6 +34,23 @@ $sql = "SELECT name,birthdate,image,description
             echo "Error updating data: " . $conn->error;
         }
     }  
+//           =======save tweets======
+    if(isset($_POST['postSubmit'])) {
+        // Retrieve data from the form
+        $set_text = $_POST['postContent'];
+
+        // Update the user's data in the database
+        $sqlUpdate_tweets = "UPDATE twitter_user 
+                            SET name = '$set_text',
+                            WHERE id = 1";
+        if ($conn->query($sqlUpdate_tweets) === TRUE) {
+            echo "Data has been successfully updated in the database.";
+            echo "<script>window.location.href = window.location.href;</script>";
+        } else {
+            echo "Error updating data: " . $conn->error;
+        }
+    }  
+
 
     
 
@@ -85,7 +102,7 @@ $sql = "SELECT name,birthdate,image,description
                             echo '<p class="tweet-text">'.$row_tweet['text'].'</p>';
                             echo '</div>';
                             echo '<div class="tweet-modify">';
-                            echo '<button class="modify-button tweet-edit">Edit</button>';
+                            echo '<button class="modify-button tweet-edit" onclick="showEditTweet(\'' . $row_tweet['text'] . '\')">Edit</button>';
                             echo '<button class="modify-button tweet-delete">Delete</button>';
                             echo '</div>';
                             echo '</div>';
@@ -108,12 +125,14 @@ $sql = "SELECT name,birthdate,image,description
         </form>
     </div>
     <div class="overlay"></div>
-    <!-- this is the prompt of the tweet
+    <!-- this is the prompt of the tweet -->
     <div id="postForm" class="post-form">
-    <button id="postCancel">X</button>
-    <textarea id="postContent" placeholder="What's happening?"></textarea>
-    <button id="postSubmit">Post</button> -->
-</div>
+        <form action="" method="post">
+            <button id="postCancel">X</button>
+            <textarea id="postContent"></textarea>
+            <input type="submit" name="postSubmit" id="postSubmit" value="Post">
+        </form>
+    </div>
 </body>
 </html>
 
@@ -132,12 +151,26 @@ function showEditForm() {
     document.getElementById('editBirthday').value = '<?php echo $row["birthdate"]; ?>';
     document.getElementById('editDescription').value = '<?php echo $row["description"]; ?>';
 }
-
-// Function to hide the edit profile form
-document.getElementById('closeProfileEdit').addEventListener('click', function() {
+    // Function to hide the edit profile form
+    document.getElementById('closeProfileEdit').addEventListener('click', function() {
     document.getElementById('profileEditForm').style.display = 'none';
     document.getElementsByClassName('overlay')[0].style.display = 'none';
-});
+    });
+
+    // Display the edit tweet form and overlay
+function showEditTweet(tweetText){
+    document.getElementById('postForm').style.display = 'block';
+    document.getElementsByClassName('overlay')[0].style.display = 'block';
+    document.getElementById('postContent').value = tweetText;
+}
+
+    // hide the edit tweet form and overlay
+    document.getElementById('postCancel').addEventListener('click',function(){
+    document.getElementById('postForm').style.display = 'none';
+    document.getElementsByClassName('overlay')[0].style.display = 'none';
+    })
+
+
 </script>
 
 
