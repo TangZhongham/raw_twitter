@@ -1,0 +1,269 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  body.popup-active {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .logo-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .logo-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .form-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: left;
+    color: #333;
+    font-size: 70px;
+    font-weight: bold;
+    padding-top: 50px;
+  }
+  
+  h2 {
+    text-align: left;
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 12px; 
+    text-align: left;
+  }
+  
+  h3 {
+    font-size: 16px;
+    padding-top: 35px;
+    font-weight: bold;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #account1 , #show-login {
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    width: 250px;
+    text-align: center;
+    border: none; 
+  }
+  
+  #account1 {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  #show-login {
+    background-color: white;
+    color: #007bff;
+    border: 2px solid #007bff;
+  }
+  
+  /*------- Sign In ----------*/
+  
+  .popup,
+  .popup-signup { 
+    position: absolute;
+    top: -150%; 
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 350px;
+    padding: 20px 50px 50px;
+    background: #fff;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+  }
+  
+  .popup.active,
+  .popup-signup.active { 
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .popup .close-btn,
+  .popup-signup .close-btn-signup { 
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: #888;
+    color: #eee;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .popup .form h2,
+  .popup-signup .form-signup h2 { 
+    text-align: center;
+    color: #222;
+    margin: 30px 0px 35px;
+    font-size: 20px;
+  }
+  
+  .popup .form .form-element,
+  .popup-signup .form-signup .form-element-signup { 
+    margin: 20px auto;
+    width: 80%;
+  }
+  
+  .popup .form .form-element label,
+  .popup-signup .form-signup .form-element-signup label { 
+    color: #222;
+    text-align: left;
+    display: block;
+  }
+  
+  .popup .form .form-element input[type=email],
+  .popup .form .form-element input[type=password],
+  .popup-signup .form-signup .form-element-signup input[type=name],
+  .popup-signup .form-signup .form-element-signup input[type=email],
+  .popup-signup .form-signup .form-element-signup input[type=password] { 
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+  
+  .popup .form .form-element #button,
+  .popup-signup .form-signup .form-element-signup input[type=submit] { 
+    display: block;
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 10px;
+    background: #007bff;
+    color: #f5f5f5;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+ 
+  .popup .form .form-element a,
+  .popup-signup .form-signup .form-element-signup a { 
+    display: block;
+    font-size: 15px;
+    color: #1a79ca;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .popup .form .form-element1 p,
+  .popup-signup .form-signup .form-element-signup1 p {
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .popup .form .form-element1 p,
+  .popup-signup .form-signup .form-element-signup a {
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /*------- Sign Up ----------*/
+  
+  .popup-signup .nextToEachother {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+  
+  .popup-signup .form-signup .form-element-signup select {
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .popup-signup .form-signup .form-element-signup #day {
+    position: absolute;
+    bottom: 21.5%;
+    margin-left: 2%;
+  }
+  
+  .popup-signup .form-signup .form-element-signup #mounth {
+    position: relative;
+    padding: 10px;
+    bottom: 70%;
+  }
+  
+  .popup-signup .form-signup .form-element-signup #year {
+    position: absolute;
+    bottom: 21.5%;
+    margin-left: 0%;
+  }
+  
+  .popup-signup .form-signup .form-element-signup a {
+    display: block;
+    font-size: 15px;
+    color: #1a79ca;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.form-element2 {
+    padding-top: 90px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1a79ca;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.btn:hover {
+    background-color: #1a79ca;
+}
