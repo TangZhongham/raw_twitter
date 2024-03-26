@@ -1,106 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Get profile form elements
-    // propmt
-    const profileEditForm = document.getElementById('profileEditForm');
-    const overlay = document.querySelector('.overlay');
-    // edit context
-    const editName = document.querySelector('#editName');
-    const editBirthday =document.querySelector('#editBirthday');
-    const editDescription = document.querySelector('#editDescription');
-    //  event for turn on/off and save
-    const editProfile = document.querySelector('.p_top_edit');
-    const closeProfileEdit = document.getElementById('closeProfileEdit');
-    const saveProfileEdit = document.getElementById('saveProfile');
-    // tweet
-    const deleteTweet = document.querySelectorAll('.tweet-delete');
-    // ========from here for edit the profile========
-    // function to show profile edit form
-    function showprofileEditForm(){
-        profileEditForm.style.display = 'block';
-        overlay.style.display = 'block';
-        editName.focus(); 
 
-    }
-
-    // function to hide edit form
-    function hidefileEditForm(){
-        profileEditForm.style.display = 'none';
-        overlay.style.display = 'none';
-        editName.value = '';
-        editBirthday.value='';
-        editDescription.value = '';
-    }
-
-    // function saveProfileForm(){
-    //     // validate name
-    //     const defaultMsg = '';
-    //     const nameErrorMsg = 'Name needs to be less than 8 characters';
-    //     const birthdayErrorMsg = 'Birthday format should day,month,year '
-
-    //     const nameError = document.createElement('p')
-    //     nameError.setAttribute('class','warning')
-    //     document.querySelector("#editName").parentNode.appendChild(nameError);
-        
-    //     function validateName(){
-    //         if (editName.value.length > 8){
-    //             return nameErrorMsg;
-    //         }else{
-    //             return defaultMsg;
-    //         }
-    //     }
-
-    //     editName.parentNode.insertBefore(nameError, editName.nextSibling);
-
-    //     function validate(){
-    //         let valid = true;
-    //         let nameValidation = validateName();
-    //         if(nameValidation !== defaultMsg){
-    //             nameError.textContent = nameValidation;
-    //             valid = false;
-    //         }
-    //         return valid
-    //     }
-    //     // event listner to empty the text inside the two paragraph when resent
-    //     function reserNameError(){
-    //         nameError.textContent =defaultMsg;
-    //     }
-
-    //     editName.addEventListener("blur",()=>{
-    //         let x =validateName();
-    //         if(x == defaultMsg){
-    //             nameError.textContent = defaultMsg;
-    //         }
-    //     })
-
-    //     //if validate sucessed then save
-    //     // if(validate()) {
-    //     //     const name = document.querySelector('.p_name');
-    //     //     const birthday = document.getElementById('birthdayInfo');
-    //     //     const description = document.getElementById('descriptionInfo');
-
-    //     //     name.textContent = editName.value;
-    //     //     birthday.textContent = editBirthday.value;
-    //     //     description.textContent = editDescription.value;
-    //     //     hidefileEditForm();
-    //     // }
-        
-    // }
-   // Event listener for turn on profile edit click
-   editProfile.addEventListener('click',showprofileEditForm);
-    // Event listener for turn off profile edit click
-   closeProfileEdit.addEventListener('click',hidefileEditForm);
-  // Event listener for save profile edit click
-//    saveProfileEdit.addEventListener('click',saveProfileForm);
-
- // ========from here for edit Tweets========
-    deleteTweet.forEach(button => {
-        button.addEventListener('click', function() {
-            // 删除当前推文
-            const tweet = button.closest('.tweet');
-            tweet.remove();
-        });
+function showEditForm() {
+    // Display the edit profile form and overlay
+    document.getElementById('profileEditForm').style.display = 'block';
+    document.getElementsByClassName('overlay')[0].style.display = 'block';
+    // Fill the edit form fields with existing user data
+    document.getElementById('editName').value = '<?php echo"{$row["name"]}" ?>';
+    document.getElementById('editBirthday').value = '<?php echo $row["birthdate"]; ?>';
+    document.getElementById('editDescription').value = '<?php echo $row["description"]; ?>';
+}
+    // Function to hide the edit profile form
+    document.getElementById('closeProfileEdit').addEventListener('click', function() {
+    document.getElementById('profileEditForm').style.display = 'none';
+    document.getElementsByClassName('overlay')[0].style.display = 'none';
     });
-    
 
 
-})
+    // Display the edit tweet form and overlay
+function showEditTweet(tweetText, tweetId){
+    document.getElementById('postForm').style.display = 'block';
+    document.getElementsByClassName('overlay')[0].style.display = 'block';
+    document.getElementById('postContent').value = tweetText;
+    document.getElementById('tweetId').value = tweetId;
+}
+    // hide the edit tweet form and overlay
+    document.getElementById('postCancel').addEventListener('click',function(){
+    document.getElementById('postForm').style.display = 'none';
+    document.getElementsByClassName('overlay')[0].style.display = 'none';
+    });
+
+    // show delete the tweet
+    function showDeleteConfirmation(deleteTweetId) {
+    document.getElementById('deleteTweet').style.display = 'block';
+    document.getElementsByClassName('overlay')[0].style.display = 'block';
+    document.getElementById('deleteTweetId').value = deleteTweetId; 
+}
+
+// hide the delete tweet form and overlay
+document.getElementById('deleteCancel').addEventListener('click', function() {
+    document.getElementById('deleteTweet').style.display = 'none';
+    document.getElementsByClassName('overlay')[0].style.display = 'none';
+});
+
+
+
