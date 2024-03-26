@@ -7,7 +7,7 @@
    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
        // Display a message and redirect to the login page
        echo '<script>alert("Please log in to view this page");';
-       echo 'window.location.href = "login.php";</script>';
+       echo 'window.location.href = ".";</script>';
        exit;
    }
 ?>
@@ -72,11 +72,13 @@
     </div>
 </div>
 
-<div id="postForm" class="post-form">
+<form action="tweet.php" method="post" id="postForm" class="post-form">
     <button id="postCancel">X</button>
-    <textarea id="postContent" placeholder="What's happening?"></textarea>
-    <button id="postSubmit">Post</button>
-</div>
+    <textarea id="postContent" type="text" name="postContent" placeholder="What's happening?"></textarea>
+    <!-- <input type="submit" name="postSubmit" id="postSubmit" value="Post"> -->
+    <button type="submit" name="postSubmit"  id="postSubmit">Post</button>
+    
+</form>
 
 <div class="overlay"></div>
 

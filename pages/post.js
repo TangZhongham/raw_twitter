@@ -26,20 +26,20 @@ document.addEventListener('DOMContentLoaded', function() {
     postTextArea.addEventListener('click', showPostForm);
 
     // Event listener for post form submit
-    postSubmit.addEventListener('click', () => {
-        // Get post content
-        const content = postContent.value.trim();
+    // postSubmit.addEventListener('click', () => {
+    //     // Get post content
+    //     const content = postContent.value.trim();
 
-        // Check if content is not empty
-        if (content !== '') {
-            // Do something with the post content (e.g., send it to the server)
-            console.log('Posted:', content);
-            // Hide post form and overlay after posting
-            hidePostForm();
-        } else {
-            alert('Please enter some content.');
-        }
-    });
+    //     // Check if content is not empty
+    //     if (content !== '') {
+    //         // Do something with the post content (e.g., send it to the server)
+    //         console.log('Posted:', content);
+    //         // Hide post form and overlay after posting
+    //         hidePostForm();
+    //     } else {
+    //         alert('Please enter some content.');
+    //     }
+    // });
 
     // Event listener for cancel button click
     postCancel.addEventListener('click', hidePostForm);
