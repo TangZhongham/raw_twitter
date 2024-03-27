@@ -7,7 +7,7 @@
    if (!isset($_SESSION['user_id'])) {
        // Display a message and redirect to the login page
        echo '<script>alert("Please log in to view this page");';
-       echo 'window.location.href = ".";</script>';
+       echo 'window.location.href = "index.html";</script>';
        exit;
    }
 ?>
@@ -28,10 +28,10 @@
         <a href="profile.php"><button class="page-button">Profile</button></a>
         <a href="random.php"><button class="page-button">Random</button></a>
         <?php
-            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+            if(isset($_SESSION['user_id'])) {
                 echo '<a href="logout.php"><button class="page-button">Logout</button></a>';
             } else {
-                echo '<a href="login.php"><button class="page-button">Login</button></a>';
+                echo '<a href="index.php"><button class="page-button">Login</button></a>';
             }
         ?>
     </div>

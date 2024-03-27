@@ -1,9 +1,12 @@
 <?php
+session_start();
+
+$_SESSION = array();
 
 session_destroy();
 
-echo '<script>alert("Successfully Logout, Please log in to view this page");';
-       echo 'window.location.href = ".";</script>';
-       exit;
+header("Location: index.php");
+
+exit;
 
 ?>
