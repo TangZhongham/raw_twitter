@@ -225,10 +225,12 @@ body {
     position: absolute;
     right: 10px;
     bottom: 3px;
+    padding: 3px 5px;
 }
 
 .modify-button{
     background-color: transparent;
+    display: inline-block  ;
     border: none;
     color: #007bff;
 }
@@ -300,3 +302,50 @@ body {
     color: red;
 }
 
+
+#deleteButton, #deleteCancel {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#deleteCancel {
+    background-color: #dc3545;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#deleteButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#deleteTweet{
+    width: 300px;
+    height: 120px;
+
+}
+#deleteh2{
+   padding-top: 50px;
+   font-weight: 400;
+}
+
+
+.noTweet{
+    margin-top: 40px;
+    text-align: center;
+    font-size: larger;
+    color: #007bff;
+}
+
+.nothingContainer {
+    display: flex;
+    justify-content: center; 
+}
