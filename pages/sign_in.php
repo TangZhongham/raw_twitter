@@ -26,10 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Redirect to the dashboard or any other page after successful login
         header("Location: new_post.php");
-        exit;
     } else {
         // Authentication failed
-        //header("Location: sign_in.php");
         $error = "Invalid email or password or you don't have an account. Please try again.";
 
     }

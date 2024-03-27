@@ -14,11 +14,18 @@ if (isset($_POST["signup"])) {
 
     // Perform SQL query to insert user data
     $sql = "INSERT INTO twitter_user (name, email, password, month, day, year)
-            VALUES ('$name', '$email', '$password', '$dob_month', '$dob_day', '$dob_year')";
+            VALUES (?, ?, ?, ?, ?, ?)";
+    
+    // Prepare the statement
+    $stmt = $conn->prepare($sql);
+    
+    // Bind parameters
+    $stmt->bind_param("ssssss", $name, $email, $password, $dob_month, $dob_day, $dob_year);
 
-    if ($conn->query($sql) === TRUE) {
+    // Execute the statement
+    if ($stmt->execute()) {
         // Retrieve the user's ID after successful registration
-        $user_id = $conn->insert_id;
+        $user_id = $stmt->insert_id;
         
         // Store the user's ID in a session variable
         $_SESSION['user_id'] = $user_id;
@@ -38,5 +45,6 @@ if (isset($_POST["signup"])) {
     exit;
 }
 
+$stmt->close(); // Close prepared statement
 $conn->close(); // Close database connection
 ?>

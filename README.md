@@ -24,7 +24,7 @@ Azi:
 ## Basic Git
 
 // . means add all files at current and sub dirs
-git add . 
+git add pages/index.html. 
 
 // commit
 git commit -m "Your modification descriptions"
