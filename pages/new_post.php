@@ -43,13 +43,13 @@
     <?php
         include 'db_connection.php';
 
-        $sql = "SELECT u.name, u.birthdate, u.image, t.text, COUNT(l.id) AS likes 
+        $sql = "SELECT u.name, u.image, t.text, COUNT(l.id) AS likes 
                 FROM twitter_user u 
                 JOIN tweets t ON u.id = t.userid
                 JOIN follow f ON u.id = f.userid
                 JOIN likes l ON u.id = l.userid
                 WHERE l.status = 'True'
-                GROUP BY u.name, u.birthdate, u.image, t.text";
+                GROUP BY u.name, u.image, t.text";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
