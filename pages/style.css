@@ -349,3 +349,8 @@ body {
     display: flex;
     justify-content: center; 
 }
+
+#editName-label{
+    display: block;
+    margin-top: 50px;
+}

@@ -3,22 +3,32 @@ A raw twitter for assignment 2
 
 TODO:
 
-- [ ] ADD a footer
-- [ ] 
+- [ ] Check HTML correctness
+- [ ] ADD a footer (not)
+- [ ] One CSS or at least?
+- [ ] Creates a responsive and user-friendly interface using HTML and CSS. Ensures a consistent and pleasant user experience across different devices
+- [ ] unified header
+- [ ] add comments like creator for each page
+
+All supporting documentation that contains at a minimum a web map, a wireframe , a functionality guide, a description of the database, and any special coding considerations.
+
+A breakdown of the tasks assigned to each team member.
+
 
 Ham:
 
-- [ ] Password Encrption
+- [ ] Filtering(Likes asd desc?,): Provides effective content filtering options. Allows users to filter content based on relevant criteria.
+- [ ] Logout
+- [ ] DDL, DML
 
 Nolan:
 
-- [ ] dynamic Profile Page
+- [ ] ppt
 
 Azi:
 
-- [ ] name sign in page index.html
-- [ ] dynamic Profile Page
-- [ ] use page redirection when user press logout to Signin page.
+- [ ] Implements proper error handling for database operations. Provides clear error
+messages to users (When creating user, check email status)
 
 
 ## Basic Git

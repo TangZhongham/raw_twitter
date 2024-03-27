@@ -1,77 +1,6 @@
 
 <?php
-include 'db_connection.php';
-
-// ===============PHP============
-//   =======top area======
-//  get data from database
-$sql = "SELECT name,birthdate,image,description
-            FROM twitter_user
-            WHERE id = 1";
-    $result = $conn ->query($sql);
-
-    if($result -> num_rows > 0){
-        $row = $result ->fetch_assoc();
-    }
-
-// save profile to database
-    if(isset($_POST['saveProfile'])) {
-        // Retrieve data from the form
-        $set_name = $_POST['editName'];
-        $set_birthDay = $_POST['editBirthday'];
-        $set_description = $_POST['editDescription'];
-    
-        // Update the user's data in the database
-        $sqlUpdate = "UPDATE twitter_user 
-                      SET name = '$set_name',
-                          birthdate = '$set_birthDay',
-                          description = '$set_description'
-                      WHERE id = 1";
-        if ($conn->query($sqlUpdate) === TRUE) {
-            echo "Data has been successfully updated in the database.";
-            echo "<script>window.location.href = window.location.href;</script>";
-        } else {
-            echo "Error updating data: " . $conn->error;
-        }
-    }  
-//           =======modify tweets======
-    if(isset($_POST['postSubmit'])) {
-        // Retrieve data from the form
-        $set_text = $_POST['postContent'];
-        $tweetId = $_POST['tweetId'];
-
-        $sqlUpdate_tweets = "UPDATE tweets 
-                            SET text = '$set_text'
-                            WHERE id = '$tweetId'";
-        if ($conn->query($sqlUpdate_tweets) === TRUE) {
-            echo "Data has been successfully updated in the database.";
-            echo "<script>window.location.href = window.location.href;</script>";
-        } else {
-            echo "Error updating data: " . $conn->error;
-            
-        }
-    }  
-//          ========delete tweets==========
-if(isset($_POST['deleteButton'])){
-    $tweetDeleteId = $_POST['deleteTweetId'];
-
-    // delete likes
-    $sql_delete_likes = "DELETE FROM likes WHERE tweetid = $tweetDeleteId";
-    if($conn->query($sql_delete_likes) === true) {
-        // delete tweet
-        $sql_delete_tweet = "DELETE FROM tweets WHERE id = $tweetDeleteId";
-        if($conn->query($sql_delete_tweet) === true){
-            echo "Successfully deleted tweet.";
-            echo "<script>window.location.href = window.location.href;</script>"; 
-        } else {
-            echo "Error deleting tweet: " . $conn->error;
-        }
-    } else {
-        echo "Error deleting likes: " . $conn->error;
-    }
-}
-    
-
+include 'profile_process.php';
 ?>
 <!-- ================HTML======================== -->
 <!DOCTYPE html>
@@ -98,7 +27,6 @@ if(isset($_POST['deleteButton'])){
                 <img src="images/1.jpeg" alt="user_photo" id="p_Photo">
                 <div class="profile-top-middle">
                     <h1 class="p_name" class="tweet-avatar"><?php echo"{$row["name"]}" ?></h1>
-                    <p class="p_info  tweet-text" id="birthdayInfo"><?php echo"{$row["birthdate"]}" ?></p>
                     <p class="p_info  tweet-text" id="descriptionInfo"><?php echo"{$row["description"]}" ?></p>
                 </div>
                 <button class="p_top_edit" onclick="showEditForm()" >Edit profile</button>
@@ -136,19 +64,21 @@ if(isset($_POST['deleteButton'])){
     </div>
     <!-- this is the prompt of the top area -->
     <div id="profileEditForm" class="profile-edit-form">
-        <form action="" method="post">
-            <button id="closeProfileEdit">x</button>
+    
+        <form action="profile_process.php" method="post">
+            <label for="editName" id="editName-label">Name</label>
             <input type="text" name="editName" id="editName" class="editinfo" placeholder="Name-- less than 8 characters">
-            <input type="text" name="editBirthday" id="editBirthday" class="editinfo" placeholder='Birthday-"DDMMYYYY"'>
+            <label for="editDescription">Description</label>
             <input type="text" name="editDescription" id="editDescription" class="editinfo" placeholder="Description">
             <input type="submit" name="saveProfile" id="saveProfile" value="save">
         </form>
+            <button  id="closeProfileEdit">x</button>
     </div>
     <div class="overlay"></div>
     <!-- this is the prompt of the tweet -->
     <div id="postForm" class="post-form">
-        <form action="" method="post">
-            <button id="postCancel">X</button>
+        <button id="postCancel">X</button>
+        <form action="profile_process.php" method="post">
             <textarea id="postContent" name="postContent"></textarea>
             <input type="hidden" id="tweetId" name="tweetId" value="">
             <input type="submit" name="postSubmit" id="postSubmit" value="Post">
@@ -156,37 +86,54 @@ if(isset($_POST['deleteButton'])){
     </div>
     <!-- this is the prompt of delete -->
     <div id="deleteTweet" class="post-form">
-        <form action="" method ="post">
-            <button id="deleteCancel">x</button>
+        <button  id="deleteCancel">x</button>
+        <form action="profile_process.php" method ="post">
             <h3 id="deleteh2">Are you sure delete this tweet?</h3>
             <input type="submit" name="deleteButton" id="deleteButton" value="delete" >
             <input type="hidden" id="deleteTweetId" name="deleteTweetId" value="">
-        
         </form>
 
     </div>
 </body>
 </html>
 
+<?php
+include 'profileJs.php';
+?>
 
 
 <!-- ==============================JS================================ -->
-<script>
+<!-- <script>
+    // get random avatar
+    window.onload =function(){
+        var defaultAvatar =[
+            "images/1.jpeg",
+            "images/2.png",
+            "images/3.jpg",
+            "images/4.jpeg",
+            "images/5.jpeg",
+            "images/6.jpeg",
+        ]
+
+        var random_number = Math.floor(math.random_number * defaultAvatar.length);
+        var userAvatar = defaultAvatar(random_number);
+        document.getElementById('p_Photo').src = userAvatar;
+        
+    }
+
 function showEditForm() {
     // Display the edit profile form and overlay
     document.getElementById('profileEditForm').style.display = 'block';
     document.getElementsByClassName('overlay')[0].style.display = 'block';
     // Fill the edit form fields with existing user data
     document.getElementById('editName').value = '<?php echo"{$row["name"]}" ?>';
-    document.getElementById('editBirthday').value = '<?php echo $row["birthdate"]; ?>';
     document.getElementById('editDescription').value = '<?php echo $row["description"]; ?>';
 }
     // Function to hide the edit profile form
     document.getElementById('closeProfileEdit').addEventListener('click', function() {
-    document.getElementById('profileEditForm').style.display = 'none';
-    document.getElementsByClassName('overlay')[0].style.display = 'none';
+        document.getElementById('profileEditForm').style.display = 'none';
+        document.getElementsByClassName('overlay')[0].style.display = 'none';
     });
-
 
     // Display the edit tweet form and overlay
 function showEditTweet(tweetText, tweetId){
@@ -214,6 +161,4 @@ document.getElementById('deleteCancel').addEventListener('click', function() {
     document.getElementsByClassName('overlay')[0].style.display = 'none';
 });
 
-</script>
-
-
+</script> -->
