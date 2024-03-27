@@ -9,9 +9,9 @@
             "images/5.jpeg",
             "images/6.jpeg",
         ]
-
-        var random_number = Math.floor(math.random_number * defaultAvatar.length);
-        var userAvatar = defaultAvatar(random_number);
+        
+        var random_number = Math.floor(Math.random() * defaultAvatar.length - 1);
+        var userAvatar = defaultAvatar[random_number];
         document.getElementById('p_Photo').src = userAvatar;
         
     }
