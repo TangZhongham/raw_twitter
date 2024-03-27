@@ -1,11 +1,13 @@
 <?php
+
 include 'db_connection.php';
+$userIdbySession = $_SESSION['user_id'];
 // ===============PHP============
 //   =======top area======
 //  get data from database
 $sql = "SELECT name,description
             FROM twitter_user
-            WHERE id = 1";
+            WHERE id = $userIdbySession";
     $result = $conn ->query($sql);
 
     if($result -> num_rows > 0){
@@ -22,7 +24,7 @@ $sql = "SELECT name,description
         $sqlUpdate = "UPDATE twitter_user 
                       SET name = '$set_name',
                           description = '$set_description'
-                      WHERE id = 1";
+                      WHERE id = $userIdbySession";
         if ($conn->query($sqlUpdate) === TRUE) {
             echo "Data has been successfully updated in the database.";
             header("Location: profile.php");
