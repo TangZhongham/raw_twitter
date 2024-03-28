@@ -1,3 +1,34 @@
+// get random avatar
+window.onload = function() {
+    var defaultAvatar = [
+        "images/1.jpeg",
+        "images/2.png",
+        "images/3.jpg",
+        "images/4.jpeg",
+        "images/5.jpeg",
+        "images/6.jpeg",
+        "images/7.jpg",
+        "images/8.jpeg",
+        "images/9.jpg",
+        "images/10.jpg",
+        "images/11.jpg",
+    ];
+    
+    var tweetAvatars = document.getElementsByClassName('p_Photo');
+
+    for (var i = 0; i < tweetAvatars.length; i++) {
+        // Get the user's hashed name from the data attribute
+        var hashedName = tweetAvatars[i].getAttribute('data-hashed-name');
+        // Generate an index based on the first character of the hashed name
+        var avatarIndex = parseInt(hashedName.substring(0, 1), 16) % defaultAvatar.length;
+        // Set the src attribute of the img element
+        tweetAvatars[i].src = defaultAvatar[avatarIndex];
+    }
+}
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get post form elements
     const postForm = document.getElementById('postForm');

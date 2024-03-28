@@ -54,11 +54,13 @@
 
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                echo '<div class="tweet">';
-                echo '<div class="tweet-avatar"><img src="' . $row["image"] . '" alt="Avatar"></div>';
-                echo '<div class="tweet-content">';
-                echo '<p class="tweet-author">' . $row["name"] . '</p>';
-                echo '<p class="tweet-text">' . $row["text"] . '</p>';
+                echo '<div class="profile-top" class="fake-tweets">';
+                // echo '<img src="" alt="user_photo" class="p_Photo">';
+                $hashedName = hash('md5', $row["name"]);
+                echo '<img src="" alt="Avatar" class="p_Photo" data-hashed-name="' . $hashedName . '">';
+                echo '<div class="profile-top-middle">';
+                echo '<h1 class="p_name" class="tweet-avatar" >' . $row["name"] . '</h1>';
+                echo '<p class="p_info tweet-text">' . $row["text"] . '</p>';
                 echo '<p class="tweet-likes">' . $row["likes"] . ' likes</p>';
                 echo '</div></div>';
             }
