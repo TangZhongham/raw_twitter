@@ -43,22 +43,24 @@
     <?php
         include 'db_connection.php';
 
-        $sql = "SELECT u.name, u.image, t.text, COUNT(l.id) AS likes 
-                FROM twitter_user u 
-                JOIN tweets t ON u.id = t.userid
-                JOIN follow f ON u.id = f.userid
-                JOIN likes l ON u.id = l.userid
-                WHERE l.status = 'True'
-                GROUP BY u.name, u.image, t.text";
+        $sql = "SELECT u.name, t.text, COUNT(l.id) AS likes 
+        FROM twitter_user u 
+        JOIN tweets t ON u.id = t.userid
+        LEFT JOIN follow f ON u.id = f.userid
+        LEFT JOIN (select * from likes WHERE status = 'True') l
+         ON u.id = l.userid
+        GROUP BY u.name, t.text;";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                echo '<div class="tweet">';
-                echo '<div class="tweet-avatar"><img src="' . $row["image"] . '" alt="Avatar"></div>';
-                echo '<div class="tweet-content">';
-                echo '<p class="tweet-author">' . $row["name"] . '</p>';
-                echo '<p class="tweet-text">' . $row["text"] . '</p>';
+                echo '<div class="profile-top" class="fake-tweets">';
+                // echo '<img src="" alt="user_photo" class="p_Photo">';
+                $hashedName = hash('md5', $row["name"]);
+                echo '<img src="" alt="Avatar" class="p_Photo" data-hashed-name="' . $hashedName . '">';
+                echo '<div class="profile-top-middle">';
+                echo '<h1 class="p_name" class="tweet-avatar" >' . $row["name"] . '</h1>';
+                echo '<p class="p_info tweet-text">' . $row["text"] . '</p>';
                 echo '<p class="tweet-likes">' . $row["likes"] . ' likes</p>';
                 echo '</div></div>';
             }

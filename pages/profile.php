@@ -31,7 +31,11 @@ $userIdbySession =$_SESSION['user_id'];
         <div class="post-container">
                 <!-- the top area -->
             <div class="profile-top" class="fake-tweets">
-                <img src="" alt="user_photo" id="p_Photo">
+                <?php
+                    $hashedName = hash('md5', $row["name"]);
+                    echo '<img src="" alt="Avatar" id="p_Photo" data-hashed-name="' . $hashedName . '">';
+                ?>
+                <!-- <img src="" alt="user_photo" id="p_Photo"> -->
                 <div class="profile-top-middle">
                     <h1 class="p_name" class="tweet-avatar"><?php echo"{$row["name"]}" ?></h1>
                     <p class="p_info  tweet-text" id="descriptionInfo"><?php echo"{$row["description"]}" ?></p>
