@@ -80,18 +80,6 @@ body {
     margin-bottom: 10px;
 }
 
-#searchTextArea {
-    width: 300px;
-    height: 20px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
-    margin-bottom: 10px;
-}
-
-
 .post-form {
     display: none;
     position: fixed;
@@ -165,6 +153,7 @@ body {
     padding: 10px; /* Add padding to the tweet */
     margin-bottom: 10px; /* Add margin to separate tweets */
     position: relative;
+    font-size: 14px;
 }
 
 .tweet-avatar {
@@ -188,6 +177,7 @@ body {
 
 .tweet-text {
     margin: 0; /* Remove default margin for text */
+    font-size: 1vm;
 }
 
 
@@ -212,14 +202,6 @@ body {
     margin: 0 40px;
 }
 
-.p_Photo{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
-}
-
 /* this is the the button inside the top box */
 .p_top_edit{
     border: 1px solid #ccc; /* Add border to the tweet */
@@ -236,12 +218,8 @@ body {
     background-color: #898787;
 }
 
-.profile-top-middle {
-    flex-grow: 1; /* Allow the middle section to grow */
-}
-
 .profile-top-middle p, .profile-top-middle h1 {
-    margin: 0;
+    margin: 10px 0;
 }
 
 /* == this is the tweet format ==  */
@@ -257,6 +235,7 @@ body {
     display: inline-block  ;
     border: none;
     color: #007bff;
+    font-size: 1vm;
 }
 
 .modify-button:hover{
