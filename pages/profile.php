@@ -1,14 +1,12 @@
-
-<?php
-session_start();
-if(!isset($_SESSION['user_id'])){
-    echo '<script>alert("Please log in to view this page");';
-    echo 'window.location.href = ".";</script>';
-    exit;
-}
+?>
+<?php 
+include 'session_checker.php'; 
 include 'profile_process.php';
 $userIdbySession =$_SESSION['user_id'];
+
 ?>
+
+
 <!-- ================HTML======================== -->
 <!DOCTYPE html>
 <html lang="en">
