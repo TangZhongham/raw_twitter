@@ -18,7 +18,7 @@
     <title>Assignment2 - Twitter</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
@@ -176,6 +176,6 @@
             </div>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script src="../scripts/script.js"></script>
 </body>
 </html>
