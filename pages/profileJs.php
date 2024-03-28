@@ -8,11 +8,24 @@
             "images/4.jpeg",
             "images/5.jpeg",
             "images/6.jpeg",
+            "images/7.jpg",
+            "images/8.jpeg",
+            "images/9.jpg",
+            "images/10.jpg",
+            "images/11.jpg",
         ]
+
+        var tweetAvatar = document.getElementById('p_Photo');
+
+        var hashedName = tweetAvatar.getAttribute('data-hashed-name');
+
+        var avatarIndex = parseInt(hashedName.substring(0, 1), 16) % defaultAvatar.length;
+
+        tweetAvatar.src = defaultAvatar[avatarIndex];
         
-        var random_number = Math.floor(Math.random() * defaultAvatar.length - 1);
-        var userAvatar = defaultAvatar[random_number];
-        document.getElementById('p_Photo').src = userAvatar;
+        // var random_number = Math.floor(Math.random() * defaultAvatar.length - 1);
+        // var userAvatar = defaultAvatar[random_number];
+        // document.getElementById('p_Photo').src = userAvatar;
         
     }
 
