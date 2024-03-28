@@ -40,6 +40,10 @@
     <textarea id="postTextArea" placeholder="What's happening? Tweet here..."></textarea>
     <div class="fake-tweets">
     <h2>Fake Tweets</h2>
+    <select id="filterDropdown">
+        <option value="all">All</option>
+        <option value="likes">Liked</option>
+    </select>
     <?php
         include 'db_connection.php';
 
@@ -49,7 +53,9 @@
         LEFT JOIN follow f ON u.id = f.userid
         LEFT JOIN (select * from likes WHERE status = 'True') l
          ON u.id = l.userid
-        GROUP BY u.name, t.text;";
+        GROUP BY u.name, t.text
+        ORDER BY t.id DESC
+        ;";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -85,5 +91,28 @@
 <div class="overlay"></div>
 
 <script src="post.js" defer></script>
+<script>
+// JavaScript code for filtering tweets based on dropdown selection
+document.getElementById('filterDropdown').addEventListener('change', function() {
+    var filterValue = this.value;
+    var tweets = document.querySelectorAll('.fake-tweets .profile-top');
+
+    tweets.forEach(function(tweet) {
+        if (filterValue === 'all') {
+            tweet.style.display = 'block';
+        } else if (filterValue === 'likes') {
+            // Check if the tweet has more likes than a threshold (adjust as needed)
+            var likesText = tweet.querySelector('.tweet-likes').textContent;
+            var likesCount = parseInt(likesText.match(/\d+/)[0]);
+            if (likesCount > 0) {
+                tweet.style.display = 'block';
+            } else {
+                tweet.style.display = 'none';
+            }
+        }
+        // Add more filter conditions as needed
+    });
+});
+</script>
 </body>
 </html>

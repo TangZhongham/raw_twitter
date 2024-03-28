@@ -30,13 +30,16 @@
         if (isset($_GET['query'])) {
             $searchQuery = $_GET['query'];
             // Perform search query in the database
-            $sql = "SELECT u.name, u.birthdate, u.image, t.text, COUNT(l.id) AS likes 
-                FROM twitter_user u 
-                JOIN tweets t ON u.id = t.userid
-                JOIN follow f ON u.id = f.userid
-                JOIN likes l ON u.id = l.userid
-                WHERE l.status = 'True' AND t.text LIKE '%$searchQuery%'
-                GROUP BY u.name, u.birthdate, u.image, t.text ";
+            $sql = "SELECT u.name, t.text, COUNT(l.id) AS likes 
+            FROM twitter_user u 
+            JOIN tweets t ON u.id = t.userid
+            LEFT JOIN follow f ON u.id = f.userid
+            LEFT JOIN (select * from likes WHERE status = 'True') l
+             ON u.id = l.userid
+            WHERE t.text LIKE '%$searchQuery%'
+            GROUP BY u.name, t.text
+            ORDER BY t.id DESC
+            ;";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

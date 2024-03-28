@@ -362,3 +362,29 @@ body {
     display: block;
     margin-top: 50px;
 }
+
+
+/* Style for the dropdown select */
+#filterDropdown {
+    padding: 8px 8px; /* Add padding */
+    font-size: 16px; /* Set font size */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 4px; /* Add border radius */
+    background-color: #fff; /* Set background color */
+    color: #333; /* Set text color */
+    cursor: pointer; /* Set cursor */
+    margin-top: 15px;
+  }
+  
+  /* Style for the dropdown options */
+#filterDropdown option {
+    padding: 8px 12px; /* Add padding */
+    font-size: 16px; /* Set font size */
+    background-color: #fff; /* Set background color */
+    color: #333; /* Set text color */
+  }
+  
+  /* Style for the dropdown when hovered */
+#filterDropdown:hover {
+    border-color: #999; /* Change border color on hover */
+}
