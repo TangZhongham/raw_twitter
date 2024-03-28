@@ -12,7 +12,18 @@ if (isset($_POST["signup"])) {
     $dob_day = $_POST['day'];
     $dob_year = $_POST['year'];
 
-    // Perform SQL query to insert user data
+    // Perform SQL query to check if the email already exists
+    $check_query = "SELECT * FROM twitter_user WHERE email = '$email'";
+    $check_result = $conn->query($check_query);
+
+    // Check if the email already exists
+    if ($check_result->num_rows > 0) {
+        echo '<script>alert("Account with this email already exists. Please sign in.");';
+        echo 'window.location.href = "index.php";</script>';
+        exit;
+    }
+
+    // Prepare SQL statement to insert user data
     $sql = "INSERT INTO twitter_user (name, email, password, month, day, year)
             VALUES ('$name', '$email', '$password', '$dob_month', '$dob_day', '$dob_year')";
 
@@ -24,8 +35,8 @@ if (isset($_POST["signup"])) {
         $_SESSION['user_id'] = $user_id;
 
         // Redirect to the desired page after successful registration
-        $_SESSION['success'] = "New record created successfully";
-        header("Location: new_post.php");
+        echo '<script>alert("New record created successfully.");';
+        echo 'window.location.href = "new_post.php";</script>';
         exit;
     } else {
         $_SESSION['error'] = "Error: " . $sql . "<br>" . $conn->error;
@@ -41,4 +52,6 @@ if (isset($_POST["signup"])) {
 $conn->close(); // Close database connection
 ?>
 
+
+?>
 

@@ -22,6 +22,7 @@
 </head>
 
 <body>
+    </div>
     <div class="container">
         <div class="logo-container">
             <img src="../logos/Fake Twitter_transparent.png" alt="Twitter Logo">

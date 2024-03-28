@@ -91,7 +91,7 @@ body {
   .popup,
   .popup-signup { 
     position: absolute;
-    top: -150%; 
+    top: -200%; 
     left: 50%;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.25);
@@ -266,4 +266,12 @@ body {
 
 .btn:hover {
     background-color: #1a79ca;
+}
+
+.error-user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
 }
