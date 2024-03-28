@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'session_checker.php'; 
 include 'db_connection.php';
 $userIdbySession = $_SESSION['user_id'];
 // ===============PHP============

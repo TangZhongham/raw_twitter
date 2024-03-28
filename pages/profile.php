@@ -1,5 +1,5 @@
 <?php 
-include 'session_checker.php'; 
+
 include 'profile_process.php';
 $userIdbySession =$_SESSION['user_id'];
 
