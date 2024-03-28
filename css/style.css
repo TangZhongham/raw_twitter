@@ -210,6 +210,17 @@ body {
     margin: 0 40px;
 }
 
+#searchTextArea {
+    width: 300px;
+    height: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
 /* this is the the button inside the top box */
 .p_top_edit{
     border: 1px solid #ccc; /* Add border to the tweet */
