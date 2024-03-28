@@ -21,12 +21,7 @@ $userIdbySession =$_SESSION['user_id'];
 </head>
 <body>
     <div class="container">
-        <div class="left-section">
-            <a href="new_post.php"><button class="page-button">Home</button></a>
-            <a href="search.php"><button class="page-button">Search</button></a>
-            <a href="profile.php"><button class="page-button">Profile</button></a>
-            <button class="page-button">Random</button>
-        </div>
+        <?php include 'header.php'; ?>
     
         <div class="post-container">
                 <!-- the top area -->

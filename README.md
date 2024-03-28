@@ -17,8 +17,8 @@ A breakdown of the tasks assigned to each team member.
 
 Ham:
 
-- [ ] Filtering(Likes asd desc?,): Provides effective content filtering options. Allows users to filter content based on relevant criteria.
-- [ ] Logout
+- [x] Filtering(Likes asd desc?,): Provides effective content filtering options. Allows users to filter content based on relevant criteria.
+- [x] Logout
 - [ ] DDL, DML
 - [ ] Code reorginization 
 
@@ -49,3 +49,14 @@ git push -u origin main
 
 // Update local project from the center repo project
 git pull
+
+
+## DEMO
+
+0. run ddl, dml in phpadmin
+1. random user login -> Invalid email or password or you don't have an account. Please try again.
+2. user sign up, wrong email format, exist email, sign up successful -> main page
+3. logout, not able to see profile or main page when logout 
+4. new user sign in 
+5. main page demo, filter, search, post
+6. profile demo, edit, delete

@@ -80,6 +80,18 @@ body {
     margin-bottom: 10px;
 }
 
+#searchTextArea {
+    width: 300px;
+    height: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+
 .post-form {
     display: none;
     position: fixed;
@@ -205,7 +217,7 @@ body {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 40px;
+    margin-right: 20px;
 }
 
 /* this is the the button inside the top box */
@@ -224,8 +236,12 @@ body {
     background-color: #898787;
 }
 
+.profile-top-middle {
+    flex-grow: 1; /* Allow the middle section to grow */
+}
+
 .profile-top-middle p, .profile-top-middle h1 {
-    margin: 10px 0;
+    margin: 0;
 }
 
 /* == this is the tweet format ==  */
