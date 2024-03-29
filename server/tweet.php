@@ -1,14 +1,16 @@
 <?php
 
-session_start();
+// session_start();
+include 'session_checker.php';
 include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['postSubmit'])) {
         $tweet = $_POST['postContent'];
+        $uid = $_SESSION['user_id'];
 
         // Perform SQL query (assuming $conn is your database connection)
-        $sql = "INSERT INTO tweets (text, userid) VALUES ('$tweet', 1)";
+        $sql = "INSERT INTO tweets (text, userid) VALUES ('$tweet', '$uid')";
 
         if ($conn->query($sql) === TRUE) {
             $_SESSION['success'] = "New record created successfully";
