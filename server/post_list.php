@@ -44,15 +44,19 @@ document.getElementById('filterDropdown').addEventListener('change', function() 
 
     tweets.forEach(function(tweet) {
         if (filterValue === 'all') {
+            // fixed unstable profile pic and text
             tweet.style.display = 'block';
+            // tweet.style.visibility = 'visible'; // Show tweet
         } else if (filterValue === 'likes') {
             // Check if the tweet has more likes than a threshold (adjust as needed)
             var likesText = tweet.querySelector('.tweet-likes').textContent;
             var likesCount = parseInt(likesText.match(/\d+/)[0]);
             if (likesCount > 0) {
-                tweet.style.display = 'block';
+                // tweet.style.display = 'block';
+                tweet.style.visibility = 'visible'; // Show tweet
             } else {
                 tweet.style.display = 'none';
+
             }
         }
         // Add more filter conditions as needed
