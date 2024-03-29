@@ -2,9 +2,6 @@
 session_start();
 include 'db_connection.php'; 
 
-// Initialize error variable
-$error = "";
-
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve user input
@@ -25,11 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_name'] = $user['name'];
         
         // Redirect to the dashboard or any other page after successful login
-        header("Location: new_post.php");
+        echo '<script>alert("You are login successfully.");';
+        echo 'window.location.href = "new_post.php";</script>';
+        exit;
     } else {
         // Authentication failed
-        $error = "Invalid email or password or you don't have an account. Please try again.";
-
+        echo '<script>alert("Invalid email or password or you do not have an account. Please try again.");';
+        echo 'window.location.href = "index.php";</script>';
+        exit;
     }
 }
 
@@ -37,30 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <title>Assignment2 - Twitter</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/index.css">
-</head>
-
-<body>
-    <!-- Centered container for error message and button -->
-    <div class="container1">
-        <!-- Display error message if authentication fails -->
-        <?php if (!empty($error)) : ?>
-            <div style="color: red; font-size: 15px; font-weight:bold;"><?php echo $error; ?></div>
-        <?php endif; ?>
-
-        <!-- Button wrapped inside the centered container -->
-        <div class="form-element2">
-            <a href="index.php" class="btn">First Page</a> <!-- Style the link as a button -->
-        </div>
-    </div>
-</body>
-</html>
 
 
