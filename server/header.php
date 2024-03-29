@@ -4,8 +4,10 @@
 <a href="profile.php"><button class="page-button">Profile</button></a>
     <?php if(isset($_SESSION['user_id'])) {
         echo '<a href="logout.php"><button class="page-button">Logout</button></a>';
+        echo '<span style="font-size: 15px; font-weight: bold; margin-left: 20px;">Welcome ' . $_SESSION['user_name'] . '</span>';
     } else {
         echo '<a href="index.php"><button class="page-button">Login</button></a>';
     }
     ?>
+    
 </div>

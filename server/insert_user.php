@@ -33,6 +33,7 @@ if (isset($_POST["signup"])) {
         
         // Store the user's ID in a session variable
         $_SESSION['user_id'] = $user_id;
+        $_SESSION['user_name'] = $name;
 
         // Redirect to the desired page after successful registration
         echo '<script>alert("New record created successfully.");';
