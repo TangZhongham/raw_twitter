@@ -164,9 +164,6 @@
                         <input type="password" id="password" name="password" placeholder="Password" required>
                     </div>
                     <div class="form-element">
-                        <a href="#">Forgot Password?</a>
-                    </div>
-                    <div class="form-element">
                         <button id="button" type="submit" name="signin">Sign In</button>
                     </div>
                     <div class="form-element1">
