@@ -1,3 +1,4 @@
+<!-- Author: Zhonghan Tang -->
 
 <select id="filterDropdown">
         <option value="all">All</option>

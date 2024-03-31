@@ -1,3 +1,4 @@
+<!-- Author: Azadeh Sadeghtehrani -->
 <?php
    // Start the session
    session_start();

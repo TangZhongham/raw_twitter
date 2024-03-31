@@ -1,3 +1,4 @@
+-- Author: Zhonghan Tang
 CREATE DATABASE IF NOT EXISTS elon;
 
 USE elon;

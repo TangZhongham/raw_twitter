@@ -1,8 +1,7 @@
+<!-- Author: Yuchen Wang -->
 <?php 
-
 include 'profile_process.php';
 $userIdbySession =$_SESSION['user_id'];
-
 ?>
 
 
@@ -30,7 +29,7 @@ $userIdbySession =$_SESSION['user_id'];
                 <!-- <img src="" alt="user_photo" id="p_Photo"> -->
                 <div class="profile-top-middle">
                     <h1 class="p_name" class="tweet-avatar"><?php echo"{$row["name"]}" ?></h1>
-                    <p class="p_info  tweet-text" id="descriptionInfo"><?php echo"{$row["description"]}" ?></p>
+                    <p class="p_info  tweet-text" id="descriptionInfo"><?php echo htmlspecialchars($row["description"]); ?></p>
                 </div>
                 <button class="p_top_edit" onclick="showEditForm()" >Edit profile</button>
             </div>

@@ -1,41 +1,41 @@
 # raw_twitter
-A raw twitter for assignment 2
 
-TODO:
-
-- [ ] Check HTML correctness
-- [ ] ADD a footer (not)
-- [ ] One CSS or at least?
-- [ ] Creates a responsive and user-friendly interface using HTML and CSS. Ensures a consistent and pleasant user experience across different devices
-- [ ] unified header
-- [ ] add comments like creator for each page
+A raw twitter is a social network service where users can register their own accounts, send, modify, and delete tweets, and view tweets from other users on the website, for assignment 2.
 
 
+# Task Breakdown
 
 A breakdown of the tasks assigned to each team member.
 
+Overview of division of work：In order to give each member the opportunity to practice front-end and back-end knowledge, we break down the work into pages.
+ 
+Sadeghtehrani Azadeh:
+• Create index page.
+• Sign in, sign up, logout, Information verification etc.
+• Write her own part of the slide and format slide .
 
-Ham:
+Zhonghan Tang
+• Create home page and search page.
+• Search, filter, post, display tweets etc.
+• Set up github and database.
+• Write his own part of the slide
 
-- [x] Filtering(Likes asd desc?,): Provides effective content filtering options. Allows users to filter content based on relevant criteria.
-- [x] Logout
-- [ ] DDL, DML
-- [ ] Code reorginization 
+Yuchen Wang
+• Create a profile page.
+• Show tweets and profile, edit profile, delete or edit tweets, etc.
+• Organizational support documentation
+• Write his own slide section
 
-Nolan:
+## DEMO
 
-- [ ] ppt
-- [ ] All supporting documentation that contains at a minimum a web map, a wireframe , a functionality guide, a description of the database, and any special coding considerations.
-- [ ] A breakdown of the tasks assigned to each team member.
-- [ ] Ensures a consistent and pleasant user experience across different devices.
-
-Azi:
-
-- [ ] Implements proper error handling for database operations. Provides clear error (Sign up error with duplicate email)
-- [ ] messages to users (When creating user, check email status)
-- [ ] slides
-
-
+0. run ddl, dml in phpadmin
+1. random user login -> Invalid email or password or you don't have an account. Please try again.
+2. user sign up, wrong email format, exist email, sign up successful -> main page
+3. logout, not able to see profile or main page when logout 
+4. new user sign in 
+5. main page demo, filter, search, post
+6. profile demo, edit, delete
+   
 ## Basic Git
 
 // . means add all files at current and sub dirs
@@ -49,14 +49,3 @@ git push -u origin main
 
 // Update local project from the center repo project
 git pull
-
-
-## DEMO
-
-0. run ddl, dml in phpadmin
-1. random user login -> Invalid email or password or you don't have an account. Please try again.
-2. user sign up, wrong email format, exist email, sign up successful -> main page
-3. logout, not able to see profile or main page when logout 
-4. new user sign in 
-5. main page demo, filter, search, post
-6. profile demo, edit, delete

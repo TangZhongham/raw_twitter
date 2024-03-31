@@ -1,3 +1,5 @@
+// Author: Zhonghan Tang
+
 // get random avatar
 window.onload = function() {
     var defaultAvatar = [

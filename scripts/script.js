@@ -1,3 +1,5 @@
+// Author: Azadeh Sadeghtehrani
+
 document.addEventListener('DOMContentLoaded', function () {
     // Sign In Popup
     var showLoginBtn = document.getElementById('show-login');

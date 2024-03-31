@@ -1,4 +1,6 @@
+<!-- Author: Zhonghan Tang -->
 <?php
+
 // Database configuration
 $servername = "localhost"; // Change this if your database is hosted on a different server
 $username = "root"; // Change this to your MySQL username

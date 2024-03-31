@@ -1,3 +1,4 @@
+<!-- Author: Zhonghan Tang -->
 <div class="left-section">
 <a href="new_post.php"><button class="page-button">Home</button></a>
 <a href="search.php"><button class="page-button">Search</button></a>

@@ -1,3 +1,4 @@
+<!-- Author: Zhonghan Tang -->
 <?php
    // Start the session
    session_start();

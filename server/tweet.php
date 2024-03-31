@@ -1,3 +1,4 @@
+<!-- Author: Zhonghan Tang -->
 <?php
 
 // session_start();
@@ -6,7 +7,7 @@ include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['postSubmit'])) {
-        $tweet = $_POST['postContent'];
+        $tweet = mysqli_real_escape_string($conn, $_POST['postContent']); // Escape special characters
         $uid = $_SESSION['user_id'];
 
         // Perform SQL query (assuming $conn is your database connection)

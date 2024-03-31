@@ -1,3 +1,4 @@
+<!-- Author: Yuchen Wang -->
 <script>
     // get random avatar
     window.onload =function(){
@@ -35,7 +36,7 @@ function showEditForm() {
     document.getElementsByClassName('overlay')[0].style.display = 'block';
     // Fill the edit form fields with existing user data
     document.getElementById('editName').value = '<?php echo"{$row["name"]}" ?>';
-    document.getElementById('editDescription').value = '<?php echo $row["description"]; ?>';
+    document.getElementById('editDescription').value = '<?php echo htmlspecialchars($row["description"]); ?>';
 }
     // Function to hide the edit profile form
     document.getElementById('closeProfileEdit').addEventListener('click', function() {

@@ -1,3 +1,5 @@
+<!-- Author: Yuchen Wang -->
+
 <?php
 include 'session_checker.php'; 
 include 'db_connection.php';
@@ -18,7 +20,9 @@ $sql = "SELECT name,description
     if(isset($_POST['saveProfile'])) {
         // Retrieve data from the form
         $set_name = $_POST['editName'];
-        $set_description = $_POST['editDescription'];
+        // let user use ' 
+        $set_description = mysqli_real_escape_string($conn, $_POST['editDescription']); // Escape special characters
+
     
         // Update the user's data in the database
         $sqlUpdate = "UPDATE twitter_user 

@@ -1,5 +1,5 @@
+<!-- Author: Zhonghan Tang -->
 <?php include 'session_checker.php'; ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
